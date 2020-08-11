@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
         mStudentList.add(Student("조경진","서울시 은평구",true,1988))
         mStudentList.add(Student("강윤정","경기도 안영시",false,1991))
         mStudentList.add(Student("구주영","서울시 용산구",true,1968))
-        mStudentList.add(Student("윤은영","경기도 수원시",true,1992))
+        mStudentList.add(Student("윤은영","경기도 수원시",false,1992))
         mStudentList.add(Student("이선영","경기도 고양시",true,1985))
         mStudentList.add(Student("이용찬","서울시 노원구",true,1976))
         mStudentList.add(Student("장동국","서울시 은평구",true,1974))
-        mStudentList.add(Student("최인선","서울시 영등포구",true,1992))
+        mStudentList.add(Student("최인선","서울시 영등포구",false,1992))
 
         // Adapter 변수들은 onCreate 내부에서 초기화 해야함.
         // 메인화면에서 띄울거야;
