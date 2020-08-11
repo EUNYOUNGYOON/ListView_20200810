@@ -63,7 +63,7 @@ class StudentAdapter(
         // 올해 나이가 어떻게 되는지? 2020-본인생년 + 1 = 한국나이
         val age = 2020- data.birthYear +1
 
-        ageAndGendertxt.text = "${age}세, ${data.getGenderString()}"
+        ageAndGendertxt.text = "${data.getKoreaAge()}세, ${data.getGenderString()}"
 
         // 완성된 row를 각각의 한 줄로 뿌려주세요라고 리턴처리
         return row
