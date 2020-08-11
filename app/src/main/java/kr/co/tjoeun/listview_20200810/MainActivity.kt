@@ -2,6 +2,8 @@ package kr.co.tjoeun.listview_20200810
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
+import kr.co.tjoeun.listview_20200810.adapters.StudentAdapter
 import kr.co.tjoeun.listview_20200810.datas.Student
 import java.util.ArrayList
 
@@ -9,6 +11,10 @@ class MainActivity : AppCompatActivity() {
 
     // 학생명부가 담길 목록 변수
     val mStudentList = ArrayList<Student>()
+
+    // Adapter는 멤버변수로 있는게 편리함 -> 초기화는 여기서 할 수 없다.
+    // 초기화만 나중으로 미루자
+    lateinit var mStudentAdapter : StudentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +30,12 @@ class MainActivity : AppCompatActivity() {
         mStudentList.add(Student("장동국","서울시 은평구",true,1974))
         mStudentList.add(Student("최인선","서울시 영등포구",true,1992))
 
+        // Adapter 변수들은 onCreate 내부에서 초기화 해야함.
+        // 메인화면에서 띄울거야;
+        mStudentAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
 
+        // xml에 있는 리스트뷰의 어댑터로 지정해주자.
+        studentListView.adapter = mStudentAdapter
 
     }
 }
