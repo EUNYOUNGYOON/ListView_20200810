@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.co.tjoeun.listview_20200810.R
 import kr.co.tjoeun.listview_20200810.datas.Student
@@ -36,6 +37,17 @@ class StudentAdapter(
         // tempRow에는 절대 null일 가능성이 없다. -> row에 절대 null이 아니라고 하면서(!!) 대입
         // 각각의 줄에 뿌려질 모양이 row에 담긴다.
         val row = tempRow!!
+
+        // row 뿌려지기 전에 -> 데이터와 조합해서 적당히 문구 등을 수정하고 나서 그 다음
+        //뿌려줄 row 안에 있는 텍스트뷰를 변수로 담자
+        val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
+
+        // 상황에 맞게 (position에 맞게) 뿌려줄 근거 데이터 변수 (mList에서) 가져오기
+        val data = mList[position]
+
+        // UI에 근거 데이터 반영하기
+        nameTxt.text = data.name
+
 
         // 완성된 row를 각각의 한 줄로 뿌려주세요라고 리턴처리
         return row
